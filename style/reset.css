@@ -1,0 +1,18 @@
+.invalid {
+    border: 1px solid red;
+    /* Red border for invalid input */
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+    /* Hide error message by default */
+}
+
+body {
+    background: #DA4453;
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453);
+    background: linear-gradient(to right, #89216B, #DA4453);
+
+}
