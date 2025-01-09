@@ -11,6 +11,51 @@ body {
 
 }
 
-.form-control {
-    border: 1px solid black;
+#name-f,
+#name-l,
+#tel,
+#email,
+#pass,
+#pass2,
+#chb {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#name-f:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #000000;
+    outline: none;
+}
+
+#name-l:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #000000;
+    outline: none;
+}
+
+#tel:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #000000;
+    outline: none;
+}
+
+#email:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #000000;
+    outline: none;
+}
+
+#pass:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #020202;
+    outline: none;
+}
+
+#pass2:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #000000;
+    outline: none;
 }

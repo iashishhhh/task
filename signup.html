@@ -10,59 +10,52 @@
 </head>
 
 <body>
-    <div class="container py-2-">
+    <div class="container">
         <div class="row d-flex justify-content-center align-items-center vh-100 ">
-            <div class="col-lg-10">
+            <div class="col-lg-10 col-sm-12 col-md-12">
                 <div class="card" style="border-radius: 1rem;">
-                    <div class="row g-0">
-                        <div class="col-lg-5 col-md-6 d-none d-md-block d-flex align-items-stretch">
-                            <img src="img/sideimg.jpg" alt="login form" class="img-fluid w-100 h-100"
-                                style="object-fit:cover;  border-radius: 1rem 0 0 1rem;">
+                    <div class="row ">
+                        <div class="col-lg-6 col-md-12 d-none d-lg-block d-flex ">
+                            <img src="img/sideimg.jpg" alt="login form" class="img-fluid w-100 h-100 rounded-start"
+                                style="object-fit:cover;  border-radius: 1rem 0 0 1rem">
                         </div>
-                        <div class=" col-lg-7  col-md-6 d-flex align-items-center">
+                        <div class=" col-lg-6  col-md-12 d-flex align-items-center">
                             <div class="card-body px-4 text-black">
 
                                 <form id="registrationForm">
-
                                     <div class="d-flex align-items-center mb-3 pb-1">
-                                        <span class="h1 fw-bold mb-0">DASHBOARD LOGIN</span>
+                                        <span class="h1 fw-bold mb-0">DASHBOARD </span>
                                     </div>
-
                                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
                                         account</h5>
                                     <div class="row">
-                                        <div class="col-lg-6 col-md-12 col-sm-12 py-1"><label for="name-f"
-                                                class="form-label">First Name</label>
-                                            <input type="text" class="form-control" id="name-f"
+                                        <div class="col-lg-12 col-md-12 col-sm-12 py-1"><label for="name-f"
+                                                class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="fullname"
                                                 placeholder="Enter your first name">
                                             <div id="firstNameError" class="error text-danger mt-1"></div>
                                         </div>
-                                        <div class="col-lg-6 col-md-12 col-sm-12 py-1"> <label for="name-l"
-                                                class="form-label">Last Name</label>
-                                            <input type="text" class="form-control" id="name-l"
-                                                placeholder="Enter your last name">
-                                            <div id="lastNameError" class="error text-danger mt-1"></div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-12 col-sm-12 py-1">
+
+                                        <div class="col-lg-12 col-md-12 col-sm-12 py-1">
                                             <label for="tel" class="form-label">Phone</label>
                                             <input type="tel" class="form-control" id="tel"
                                                 placeholder="Enter your contact number">
                                             <div id="phoneError" class="error text-danger mt-1"></div>
                                         </div>
-                                        <div class="col-lg-6  col-md-12 col-sm-12 py-1 ">
+                                        <div class="col-lg-12  col-md-12 col-sm-12 py-1 ">
                                             <label for="email" class="form-label">Email</label>
                                             <input type="email" class="form-control" id="email"
                                                 placeholder="Enter your email">
                                             <div id="emailError" class="error text-danger mt-1"></div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 py-1">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 py-1">
                                             <label for="pass" class="form-label">Password</label>
                                             <input type="password" class="form-control" id="pass"
                                                 placeholder="Enter your password">
                                             <div id="passwordError" class="error text-danger mt-1"></div>
                                         </div>
 
-                                        <div class="col-lg-12 col-md-12 col-sm-12 py-1">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 py-1">
                                             <label for="pass2" class="form-label">Confirm Password</label>
                                             <input type="password" class="form-control" id="pass2"
                                                 placeholder="Re-enter your password">
@@ -78,9 +71,11 @@
                                             </div>
                                             <div id="termsError" class="error text-danger mt-1 mb-1"></div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 ">
-                                            <button type="submit" class="btn btn-outline-success py-2 w-100">Sign
+                                        <div class="col-lg-12 col-md-12 col-sm-12   ">
+                                            <button type="submit" class="btn btn-outline-success mb-3 w-100">Sign
                                                 Up</button>
+                                            <p class="p-0 m-0">Already have an account? <a href="login.html">Login</a>
+                                            </p>
                                         </div>
                                     </div>
                                 </form>

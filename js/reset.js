@@ -1,92 +1,87 @@
 document.getElementById('passwordResetForm').addEventListener('submit', function (event) {
-  event.preventDefault();
+  event.preventDefault()
 
-  clearErrors();
+  clearErrors()
 
-  const email = document.getElementById('email').value.trim();
-  const oldPassword = document.getElementById('oldPassword').value.trim();
-  const newPassword = document.getElementById('password').value.trim();
-  const confirmNewPassword = document.getElementById('confirmPassword').value.trim();
+  const email = document.getElementById('email').value.trim()
+  const newPassword = document.getElementById('password').value.trim()
+  const confirmNewPassword = document.getElementById('confirmPassword').value.trim()
 
-  let isValid = true;
+  let isValid = true
 
   // Email Validation
   if (email === '') {
-    showError('emailError', 'Email is required.');
-    isValid = false;
+    showError('emailError', 'Email is required.')
+    isValid = false
   } else if (!validateEmail(email)) {
-    showError('emailError', 'Please enter a valid email address.');
-    isValid = false;
+    showError('emailError', 'Please enter a valid email address.')
+    isValid = false
   }
 
-  // Old Password Validation
-  if (oldPassword === '') {
-    showError('oldPasswordError', 'Old password is required.');
-    isValid = false;
-  }
+
 
   // New Password Validation
   if (newPassword === '') {
-    showError('passwordError', 'New password is required.');
-    isValid = false;
+    showError('passwordError', 'New password is required.')
+    isValid = false
   } else if (!validatePassword(newPassword)) {
     showError(
       'passwordError',
       'Password must be at least 8 characters long and contain uppercase, lowercase, digit, and special character.'
-    );
-    isValid = false;
+    )
+    isValid = false
   }
 
   // Confirm Password Validation
   if (confirmNewPassword === '') {
-    showError('confirmPasswordError', 'Please confirm your new password.');
-    isValid = false;
+    showError('confirmPasswordError', 'Please confirm your new password.')
+    isValid = false
   } else if (newPassword !== confirmNewPassword) {
-    showError('confirmPasswordError', 'Passwords do not match.');
-    isValid = false;
+    showError('confirmPasswordError', 'Passwords do not match.')
+    isValid = false
   }
 
   if (isValid) {
-    const storedUserData = JSON.parse(localStorage.getItem('userData'));
+    const storedUserData = JSON.parse(localStorage.getItem('userData'))
 
     // Check if user exists and old password matches
     if (storedUserData && storedUserData.email === email) {
       if (storedUserData.password === oldPassword) {
         // Update to new password
-        storedUserData.password = newPassword;
+        storedUserData.password = newPassword
 
-        localStorage.setItem('userData', JSON.stringify(storedUserData));
+        localStorage.setItem('userData', JSON.stringify(storedUserData))
 
-        alert('Password successfully updated.');
+        alert('Password successfully updated.')
 
-        window.location.href = 'login.html';
+        window.location.href = 'login.html'
 
-        document.getElementById('passwordResetForm').reset();
+        document.getElementById('passwordResetForm').reset()
       } else {
-        showError('oldPasswordError', 'Old password is incorrect.');
+        // showError('oldPasswordError', 'Old password is incorrect.')
       }
     } else {
-      showError('emailError', 'Email not found. Please provide a registered email.');
+      showError('emailError', 'Email not found. Please provide a registered email.')
     }
   }
-});
+})
 
-function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+function validateEmail (email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
 }
 
-function validatePassword(password) {
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  return passwordRegex.test(password);
+function validatePassword (password) {
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+  return passwordRegex.test(password)
 }
 
-function showError(elementId, message) {
-  document.getElementById(elementId).innerText = message;
+function showError (elementId, message) {
+  document.getElementById(elementId).innerText = message
 }
 
-function clearErrors() {
+function clearErrors () {
   document.querySelectorAll('.text-danger').forEach(errorElement => {
-    errorElement.innerText = '';
-  });
+    errorElement.innerText = ''
+  })
 }

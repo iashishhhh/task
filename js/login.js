@@ -1,60 +1,91 @@
 $(document).ready(function () {
-  $('#loginForm').submit(function (event) {
-    event.preventDefault()
+  $('#loginForm').submit(async function (event) {
+    event.preventDefault();
 
-    const username = $('#typeUsernameX').val().trim()
-    const password = $('#typePasswordX').val().trim()
+    const username = $('#typeUsernameX').val().trim();
+    const password = $('#typePasswordX').val().trim();
 
-    clearErrors()
+    clearErrors();
 
-    const storedUserData = localStorage.getItem('userData')
+    const storedUserData = localStorage.getItem('userData');
     if (!storedUserData) {
-      showError('#typeUsernameX', ' Please Enter your valid Email!')
-      return
+      alert('Create New Account');
+      return;
     }
 
-    let userData
+    let userData;
     try {
-      userData = JSON.parse(storedUserData)
+      userData = JSON.parse(storedUserData);
     } catch (e) {
-      showError('#typeUsernameX', 'Error parsing user data. Please sign up first!')
-      return
+      showError('#typeUsernameX', 'Error parsing user data. Please sign up first!');
+      return;
     }
 
-    let isValid = true
+    let isValid = true;
 
     if (username === '') {
-      showError('#typeUsernameX', 'Username is required!')
-      isValid = false
+      showError('#typeUsernameX', 'Username is required!');
+      isValid = false;
     } else if (username !== userData.email) {
-      showError('#typeUsernameX', 'Email does not match!')
-      isValid = false
+      showError('#typeUsernameX', 'Email does not match!');
+      isValid = false;
     } else {
-      console.log('Email matches!')
+      console.log('Email matches!');
     }
 
     if (password === '') {
-      showError('#typePasswordX', 'Password is required!')
-      isValid = false
+      showError('#typePasswordX', 'Password is required!');
+      isValid = false;
     } else if (password !== userData.password) {
-      showError('#typePasswordX', 'Password does not match!')
-      isValid = false
+      showError('#typePasswordX', 'Password does not match!');
+      isValid = false;
     }
 
     if (isValid) {
-      alert('Login successful!')
-      window.location.href = 'dashboard.html'
+      alert('Login successful!');
+      window.location.href = 'dashboard.html';
     }
-  })
+  });
 
-  function showError (selector, message) {
+  // New Code Addition: Check Credentials with JSON Server
+  $('#loginForm').submit(async function (e) {
+    e.preventDefault();
+
+    const username = $('#typeUsernameX').val().trim();
+    const password = $('#typePasswordX').val().trim();
+
+    const apiUrl = 'http://localhost:3000/users';
+
+    try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error('Failed to fetch users');
+      }
+
+      const users = await response.json();
+
+      // Check if email and password match any user
+      const user = users.find(user => user.email === username && user.password === password);
+
+      if (user) {
+        alert('Login successful via JSON Server!');
+        window.location.href = 'dashboard.html';
+      } else {
+        showError('#typeUsernameX', 'Invalid email or password!');
+      }
+    } catch (error) {
+      alert(`Error: ${error.message}`);
+    }
+  });
+
+  function showError(selector, message) {
     $(selector)
       .addClass('is-invalid')
-      .after(`<div class="error-message text-danger">${message}</div>`)
+      .after(`<div class="error-message text-danger">${message}</div>`);
   }
 
-  function clearErrors () {
-    $('.error-message').remove()
-    $('input').removeClass('is-invalid')
+  function clearErrors() {
+    $('.error-message').remove();
+    $('input').removeClass('is-invalid');
   }
-})
+});

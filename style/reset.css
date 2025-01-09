@@ -16,3 +16,43 @@ body {
     background: linear-gradient(to right, #89216B, #DA4453);
 
 }
+
+#email,
+#oldPassword,
+#password,
+#confirmPassword {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+#email:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #000000;
+    outline: none;
+}
+
+#oldpassword:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #020202;
+    outline: none;
+}
+
+#password:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #020202;
+    outline: none;
+}
+
+#confirmPassword:focus {
+    box-shadow: 10px 6px 8px rgba(0, 0, 0, 0.2);
+    border-color: #000000;
+    outline: none;
+}
+
+
+
+

@@ -8,7 +8,6 @@ $(document).ready(function () {
     var email = emailInput.val().trim()
     var isValid = true
 
-
     if (email === '') {
       emailInput.addClass('is-invalid')
       $('#emailError').text('Email is required.').show()
@@ -34,9 +33,7 @@ $(document).ready(function () {
   function validateEmail (email) {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
-  }
-
-
+  }     
   function clearErrors () {
     $('#email').removeClass('is-invalid')
     $('#emailError').hide()
