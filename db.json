@@ -17,6 +17,81 @@
       "name": "ashish",
       "email": "ashishhhhh@gmail.com",
       "password": "ashish"
+    },
+    {
+      "id": "1c67",
+      "name": "ravi shankar",
+      "email": "testing@gmail.com",
+      "password": "Testing@2"
+    },
+    {
+      "id": "b6c9",
+      "name": "Hari Singh",
+      "email": "ashish@12gmail.com",
+      "phone": "9816578453",
+      "password": "testing"
+    },
+    {
+      "id": "a6d7",
+      "name": "abcd",
+      "email": "abc@gmail.com",
+      "phone": "7412589634",
+      "password": "ashish"
+    },
+    {
+      "id": "9029",
+      "name": "Hari Singh",
+      "email": "sd@gmail.com",
+      "password": "ashish"
+    },
+    {
+      "id": "8f50",
+      "name": "Hari Singh",
+      "email": "ashiiii@gmail.com",
+      "phone": "7418529630",
+      "password": "jjjjjj"
+    },
+    {
+      "id": "ae60",
+      "name": "Hari Singh",
+      "email": "ashiiiii@gmail.com",
+      "phone": "7418529630",
+      "password": "jjjjjj"
+    },
+    {
+      "id": "872e",
+      "name": "ashish",
+      "email": "ashiiiiii@gmail.com",
+      "phone": "9816578452",
+      "password": "ashish"
+    },
+    {
+      "id": "e5ef",
+      "name": "ashi",
+      "email": "jj2@gmail.com",
+      "phone": "7894561230",
+      "password": "jjjjjj"
+    },
+    {
+      "id": "49eb",
+      "name": "Hari Singh",
+      "email": "nn@gmail.com",
+      "phone": "7894561235",
+      "password": "777777"
+    },
+    {
+      "id": "2f13",
+      "name": "Hari Singh",
+      "email": "78985@gmail.com",
+      "phone": "7418529630",
+      "password": "aaaaaa"
+    },
+    {
+      "id": "0204",
+      "name": "Hari Singh",
+      "email": "9399@gmail.com",
+      "phone": "7418529630",
+      "password": "ashash"
     }
   ]
 }

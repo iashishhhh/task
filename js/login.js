@@ -37,11 +37,9 @@ $(document).ready(function () {
 
       const users = await response.json();
 
-      // Check if the email exists in the JSON file
       const user = users.find(user => user.email === username);
 
       if (user) {
-        // If email exists, verify the password
         if (user.password === password) {
           alert('Login successful!');
           window.location.href = 'dashboard.html'; // Redirect to dashboard
@@ -73,13 +71,11 @@ $(document).ready(function () {
     return regex.test(email);
   }
 
-  // Password validation function (minimum 6 characters and one number)
   function validatePassword(password) {
-    const regex = /^(?=.*\d).{6,}$/; // At least one number, minimum length 6
+    const regex = /^(?=.*\d).{6,}$/; 
     return regex.test(password);
   }
 
-  // Show and hide password logic (with eye icon toggle)
   const passwordField = document.getElementById('typePasswordX');
   const toggleButton = document.getElementById('togglePasswordX');
 

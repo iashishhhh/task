@@ -108,6 +108,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
         body: JSON.stringify({ 
           name: fullname, 
           email, 
+          phone,
           password,
         }),
       });
