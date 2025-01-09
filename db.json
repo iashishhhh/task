@@ -1,58 +1,22 @@
 {
   "users": [
     {
-      "id": "c1dd",
-      "name": "ashish kumar",
+      "id": "e72a",
+      "name": "ashish",
       "email": "ashish@gmail.com",
+      "password": "Ashish@201"
+    },
+    {
+      "id": "fb36",
+      "name": "ashish kumar",
+      "email": "ashish91@gmail.com",
       "password": "ashish"
     },
     {
-      "id": "36c1",
-      "name": "[object HTMLInputElement] ",
-      "email": "ashish@12gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "a2ae",
-      "fullname": "[object HTMLInputElement] ",
-      "email": "user@gsjfil.com",
+      "id": "e388",
+      "name": "ashish",
+      "email": "ashishhhhh@gmail.com",
       "password": "ashish"
-    },
-    {
-      "id": "2b35",
-      "name": "[object HTMLInputElement] ",
-      "email": "ashish@12gmail.com",
-      "password": "ashish"
-    },
-    {
-      "id": "9a71",
-      "name": {},
-      "email": "aeeeeeeeeeeeeeeeeeeeehs@gmail.cosm",
-      "password": "123456"
-    },
-    {
-      "id": "3afe",
-      "name": {},
-      "email": "ahs@gmail.cosm",
-      "password": "123456"
-    },
-    {
-      "id": "6134",
-      "name": {},
-      "email": "hello@yopmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "52e4",
-      "name": "[object HTMLInputElement] ",
-      "email": "ashish@gmailmm.com",
-      "password": "123456"
-    },
-    {
-      "id": "2bfa",
-      "name": "Hari Singh ",
-      "email": "12345@gail.com",
-      "password": "123456"
     }
   ]
 }

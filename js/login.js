@@ -1,59 +1,32 @@
 $(document).ready(function () {
   $('#loginForm').submit(async function (event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default form submission
 
     const username = $('#typeUsernameX').val().trim();
     const password = $('#typePasswordX').val().trim();
 
     clearErrors();
 
-    const storedUserData = localStorage.getItem('userData');
-    if (!storedUserData) {
-      alert('Create New Account');
+    // Validation for empty fields
+    if (username === "") {
+      showError('#typeUsernameX', 'Email is required.');
+    }
+
+    if (password === "") {
+      showError('#typePasswordX', 'Password is required.');
+    }
+
+    // Validation for email format
+    if (username !== "" && !validateEmail(username)) {
+      showError('#typeUsernameX', 'Please enter a valid email address.');
+    }
+
+    // Stop submission if there are validation errors
+    if ($('#typeUsernameX').hasClass('is-invalid') || $('#typePasswordX').hasClass('is-invalid')) {
       return;
     }
 
-    let userData;
-    try {
-      userData = JSON.parse(storedUserData);
-    } catch (e) {
-      showError('#typeUsernameX', 'Error parsing user data. Please sign up first!');
-      return;
-    }
-
-    let isValid = true;
-
-    if (username === '') {
-      showError('#typeUsernameX', 'Username is required!');
-      isValid = false;
-    } else if (username !== userData.email) {
-      showError('#typeUsernameX', 'Email does not match!');
-      isValid = false;
-    } else {
-      console.log('Email matches!');
-    }
-
-    if (password === '') {
-      showError('#typePasswordX', 'Password is required!');
-      isValid = false;
-    } else if (password !== userData.password) {
-      showError('#typePasswordX', 'Password does not match!');
-      isValid = false;
-    }
-
-    if (isValid) {
-      alert('Login successful!');
-      window.location.href = 'dashboard.html';
-    }
-  });
-
-  // New Code Addition: Check Credentials with JSON Server
-  $('#loginForm').submit(async function (e) {
-    e.preventDefault();
-
-    const username = $('#typeUsernameX').val().trim();
-    const password = $('#typePasswordX').val().trim();
-
+    // Fetch users from the JSON file
     const apiUrl = 'http://localhost:3000/users';
 
     try {
@@ -64,14 +37,19 @@ $(document).ready(function () {
 
       const users = await response.json();
 
-      // Check if email and password match any user
-      const user = users.find(user => user.email === username && user.password === password);
+      // Check if the email exists in the JSON file
+      const user = users.find(user => user.email === username);
 
       if (user) {
-        alert('Login successful via JSON Server!');
-        window.location.href = 'dashboard.html';
+        // If email exists, verify the password
+        if (user.password === password) {
+          alert('Login successful!');
+          window.location.href = 'dashboard.html'; // Redirect to dashboard
+        } else {
+          showError('#typePasswordX', 'Invalid password!'); // Password mismatch error
+        }
       } else {
-        showError('#typeUsernameX', 'Invalid email or password!');
+        showError('#typeUsernameX', 'Email not found!'); // Email not found error
       }
     } catch (error) {
       alert(`Error: ${error.message}`);
@@ -88,4 +66,33 @@ $(document).ready(function () {
     $('.error-message').remove();
     $('input').removeClass('is-invalid');
   }
+
+  // Email validation function
+  function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+  }
+
+  // Password validation function (minimum 6 characters and one number)
+  function validatePassword(password) {
+    const regex = /^(?=.*\d).{6,}$/; // At least one number, minimum length 6
+    return regex.test(password);
+  }
+
+  // Show and hide password logic (with eye icon toggle)
+  const passwordField = document.getElementById('typePasswordX');
+  const toggleButton = document.getElementById('togglePasswordX');
+
+  toggleButton.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    if (passwordField.type === 'password') {
+      passwordField.type = 'text'; // Show the password
+      this.innerHTML = '<i class="fa-solid fa-eye-slash"></i>'; // Change icon to "eye-slash"
+    } else {
+      passwordField.type = 'password'; // Hide the password
+      this.innerHTML = '<i class="fa-solid fa-eye"></i>'; // Change icon back to "eye"
+    }
+  });
 });
+  
