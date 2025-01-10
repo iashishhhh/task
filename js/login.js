@@ -41,6 +41,11 @@ $(document).ready(function () {
       if (user) {
         if (user.password === password) {
           alert('Login successful!');
+          
+          // Store the user's name in localStorage
+          localStorage.setItem('loggedInUser', user.username);
+          
+          // Redirect to dashboard page
           window.location.href = 'dashboard.html'; 
         } else {
           showError('#typePasswordX', 'Invalid password!');
@@ -90,4 +95,3 @@ $(document).ready(function () {
     }
   });
 });
-  
