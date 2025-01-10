@@ -1,8 +1,11 @@
-const username = localStorage.getItem('loggedInUser')
+$(document).ready(function () {
+  const loggedInUser = localStorage.getItem('loggedInUser')
 
-if (username) {
-  document.getElementById('username').textContent = username
-} else {
-  document.getElementById('username').textContent = 'Guest' // Or redirect to login page
-
-}
+  if (loggedInUser) {
+    document.getElementById('username').textContent = loggedInUser
+    $('#username').text(loggedInUser)
+  } else {
+    document.getElementById('username').textContent = 'Guest'
+    $('#username').text('Guest')
+  }
+})

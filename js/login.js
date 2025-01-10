@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // Handle login form submission
   $('#loginForm').submit(async function (event) {
     event.preventDefault(); // Prevent default form submission
 
@@ -7,7 +8,7 @@ $(document).ready(function () {
 
     clearErrors();
 
-    // Validation for empty fields
+    // Validate inputs
     if (username === "") {
       showError('#typeUsernameX', 'Email is required.');
     }
@@ -16,7 +17,7 @@ $(document).ready(function () {
       showError('#typePasswordX', 'Password is required.');
     }
 
-    // Validation for email format
+    // Email format validation
     if (username !== "" && !validateEmail(username)) {
       showError('#typeUsernameX', 'Please enter a valid email address.');
     }
@@ -25,7 +26,6 @@ $(document).ready(function () {
       return;
     }
 
-    // Fetch users from the JSON file
     const apiUrl = 'http://localhost:3000/users';
 
     try {
@@ -42,28 +42,30 @@ $(document).ready(function () {
         if (user.password === password) {
           alert('Login successful!');
           
-          // Store the user's name in localStorage
+          // Store the user's username in localStorage
           localStorage.setItem('loggedInUser', user.username);
           
-          // Redirect to dashboard page
+          // Redirect to the dashboard page
           window.location.href = 'dashboard.html'; 
         } else {
           showError('#typePasswordX', 'Invalid password!');
         }
       } else {
-        showError('#typeUsernameX', 'Email not found!'); 
+        showError('#typeUsernameX', 'Email not found!');
       }
     } catch (error) {
       alert(`Error: ${error.message}`);
     }
   });
 
+  // Function to show error messages
   function showError(selector, message) {
     $(selector)
       .addClass('is-invalid')
       .after(`<div class="error-message text-danger">${message}</div>`);
   }
 
+  // Function to clear error messages
   function clearErrors() {
     $('.error-message').remove();
     $('input').removeClass('is-invalid');
@@ -75,11 +77,7 @@ $(document).ready(function () {
     return regex.test(email);
   }
 
-  function validatePassword(password) {
-    const regex = /^(?=.*\d).{6,}$/; 
-    return regex.test(password);
-  }
-
+  // Toggle password visibility
   const passwordField = document.getElementById('typePasswordX');
   const toggleButton = document.getElementById('togglePasswordX');
 
@@ -94,4 +92,12 @@ $(document).ready(function () {
       this.innerHTML = '<i class="fa-solid fa-eye"></i>'; // Change icon back to "eye"
     }
   });
+
+  // Check if a user is already logged in
+  const loggedInUser = localStorage.getItem('loggedInUser');
+  if (loggedInUser) {
+    $('#username').text(loggedInUser); // Display the username in the dropdown
+  } else {
+    $('#username').text('Guest'); // Show 'Guest' if no user is logged in
+  }
 });
