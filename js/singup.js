@@ -180,3 +180,9 @@ function resetInvalidClasses() {
   const inputs = document.querySelectorAll('.form-control');
   inputs.forEach(input => input.classList.remove('is-invalid'));
 }
+
+// Restrict phone number input to numbers only
+document.getElementById('tel').addEventListener('input', function (event) {
+  // Remove non-numeric characters
+  this.value = this.value.replace(/\D/g, '');
+});

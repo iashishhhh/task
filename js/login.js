@@ -21,7 +21,6 @@ $(document).ready(function () {
       showError('#typeUsernameX', 'Please enter a valid email address.');
     }
 
-    // Stop submission if there are validation errors
     if ($('#typeUsernameX').hasClass('is-invalid') || $('#typePasswordX').hasClass('is-invalid')) {
       return;
     }
@@ -42,12 +41,12 @@ $(document).ready(function () {
       if (user) {
         if (user.password === password) {
           alert('Login successful!');
-          window.location.href = 'dashboard.html'; // Redirect to dashboard
+          window.location.href = 'dashboard.html'; 
         } else {
-          showError('#typePasswordX', 'Invalid password!'); // Password mismatch error
+          showError('#typePasswordX', 'Invalid password!');
         }
       } else {
-        showError('#typeUsernameX', 'Email not found!'); // Email not found error
+        showError('#typeUsernameX', 'Email not found!'); 
       }
     } catch (error) {
       alert(`Error: ${error.message}`);

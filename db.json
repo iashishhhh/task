@@ -4,7 +4,7 @@
       "id": "e72a",
       "name": "ashish",
       "email": "ashish@gmail.com",
-      "password": "Ashish@201"
+      "password": "Qwerty@123"
     },
     {
       "id": "fb36",
@@ -99,6 +99,90 @@
       "email": "asbbbb@gmail.com",
       "phone": "8521479630",
       "password": "123456"
+    },
+    {
+      "id": "9412",
+      "name": "manpreet",
+      "email": "ashishhhhh@gmail.com",
+      "phone": "1234567890",
+      "password": "ashish"
+    },
+    {
+      "id": "9f8d",
+      "name": "Hari Singh",
+      "email": "jakld@gmail.com",
+      "phone": "7418529630",
+      "password": "741852"
+    },
+    {
+      "id": "c1a9",
+      "name": "yadav",
+      "email": "asdfghjk@gmai.com",
+      "phone": "7418529630",
+      "password": "789456"
+    },
+    {
+      "id": "4ccd",
+      "name": "nomni",
+      "email": "5k@email.com",
+      "phone": "7411111236",
+      "password": "000000"
+    },
+    {
+      "id": "28d1",
+      "name": "monti",
+      "email": "monty@gmail.com",
+      "phone": "6666666666",
+      "password": "121212"
+    },
+    {
+      "id": "d934",
+      "name": "raghab",
+      "email": "ash@ggggmail.com",
+      "phone": "1233211233",
+      "password": "123321"
+    },
+    {
+      "id": "90a2",
+      "name": "response",
+      "email": "ujwal@gmail.com",
+      "phone": "7878787878",
+      "password": "ujwal1"
+    },
+    {
+      "id": "e2a8",
+      "name": "ashish chaudhary",
+      "email": "ashish@gmaillll.com",
+      "phone": "7894561230",
+      "password": "789456"
+    },
+    {
+      "id": "8e67",
+      "name": "testing signup",
+      "email": "testing@322gmail.com",
+      "phone": "7412589631",
+      "password": "Chaudhary@12"
+    },
+    {
+      "id": "b64b",
+      "name": "Hari Singh",
+      "email": "sdfghjkliu@gmail.com",
+      "phone": "7410852963",
+      "password": "Aasdfghjkl@12"
+    },
+    {
+      "id": "68c8",
+      "name": "ashish",
+      "email": "idj@gmail.com",
+      "phone": "2334567890",
+      "password": "123456"
+    },
+    {
+      "id": "52f0",
+      "name": "ds",
+      "email": "ashish@gmailkskdf.com",
+      "phone": "9816578453",
+      "password": "radhav"
     }
   ]
 }
